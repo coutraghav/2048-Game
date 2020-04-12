@@ -8,7 +8,6 @@ class Game2048(Frame):
         Frame.__init__(self)
         self.grid()
         self.master.title("2048")
-        #self.commands={c.UP:Logics.upMove,c.DOWN:Logics.downMove,c.LEFT:Logics.leftMove,c.RIGHT:Logics.rightMove}
         self.master.bind("<Key>",self.key_down)
         self.grid_cells=[]
         self.init_grid()
@@ -46,13 +45,9 @@ class Game2048(Frame):
         self.update_idletasks()
                     
 
-
-##    def callback(self,event):
-##        self.frame.focus_set()
-    
+  
     def key_down(self,event):
         key=str(event.char)
-        print(key)
         if key in c.COMMANDS:
             self.matrix,changed=c.COMMANDS[key](self.matrix)
             if changed:
